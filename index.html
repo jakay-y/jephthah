@@ -1,1160 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jephthah Comprehensive Secondary School - Redesigned</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1E3A8A;
-            --secondary: #10B981;
-            --accent: #F59E0B;
-            --danger: #EF4444;
-            --neutral-900: #111827;
-            --neutral-700: #374151;
-            --neutral-600: #4B5563;
-            --neutral-100: #F3F4F6;
-            --neutral-50: #FAFAF9;
-            --white: #FFFFFF;
-            
-            --font-display: 'Georgia', 'Garamond', serif;
-            --font-body: 'Segoe UI', 'Tahoma', sans-serif;
-            
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
-            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--neutral-900);
-            background-color: var(--neutral-50);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: var(--white);
-            border-bottom: 1px solid var(--neutral-100);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            font-family: var(--font-display);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--neutral-700);
-            font-weight: 500;
-            transition: all 0.3s ease-out;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--secondary);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 4px;
-        }
-
-        .nav-cta {
-            background: var(--primary);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease-out;
-            cursor: pointer;
-            border: none;
-            font-size: 0.95rem;
-        }
-
-        .nav-cta:hover {
-            background: #1e3a8a;
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
-            color: var(--white);
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-family: var(--font-display);
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease-out;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: #f59e0b;
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            font-family: var(--font-display);
-            color: var(--primary);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        section p {
-            font-size: 1.1rem;
-            color: var(--neutral-600);
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        /* Why Jephthah Section */
-        .why-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease-out;
-            border-top: 3px solid var(--accent);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-card h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-family: var(--font-display);
-        }
-
-        .feature-card p {
-            color: var(--neutral-600);
-            text-align: left;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
-            color: var(--white);
-        }
-
-        .stats h2 {
-            color: var(--white);
-            margin-bottom: 3rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            animation: slideIn 0.6s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent);
-            font-family: 'IBM Plex Mono', monospace;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* News Section */
-        .news {
-            background: var(--neutral-50);
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .news-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease-out;
-        }
-
-        .news-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .news-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 3rem;
-        }
-
-        .news-content {
-            padding: 1.5rem;
-        }
-
-        .news-date {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .news-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-family: var(--font-display);
-        }
-
-        .news-content p {
-            color: var(--neutral-600);
-            font-size: 0.95rem;
-            text-align: left;
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease-out;
-        }
-
-        .read-more:hover {
-            color: var(--accent);
-            transform: translateX(4px);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: var(--white);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            position: relative;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease-out;
-        }
-
-        .testimonial-card:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 15px;
-            font-size: 3rem;
-            opacity: 0.3;
-            font-family: var(--font-display);
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .testimonial-role {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        .stars {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-        }
-
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 2rem;
-            border-radius: 12px;
-            margin: 4rem auto;
-            max-width: 800px;
-        }
-
-        .cta h2 {
-            color: var(--white);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 3rem 2rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-            font-family: var(--font-display);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease-out;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent);
-            transform: translateX(4px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 2rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease-out;
-        }
-
-        .social-icons a:hover {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-
-        /* Page Sections (Hidden by default) */
-        .page-section {
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* About Page Styles */
-        .pillar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pillar-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease-out;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .pillar-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .pillar-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-family: var(--font-display);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-menu {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .why-section {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 2rem 1rem;
-            }
-
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .cta {
-                margin: 2rem 0;
-                padding: 3rem 1rem;
-            }
-
-            .cta h2 {
-                font-size: 1.8rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Hidden initially until clicked */
-        .hidden {
-            display: none;
-        }
-
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .modal-content {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .modal-close {
-            float: right;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--neutral-600);
-            transition: all 0.3s;
-        }
-
-        .modal-close:hover {
-            color: var(--primary);
-            transform: rotate(90deg);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jephthah Comprehensive Secondary School — Excellence, Discipline, Christian Values. Port Harcourt, Rivers State, Nigeria." />
+  <title>Jephthah Comprehensive Secondary School | Port Harcourt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">JEPHTHAH</a>
-        <ul class="nav-menu">
-            <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-            <li><a href="#" class="nav-link" data-page="about">About</a></li>
-            <li><a href="#" class="nav-link" data-page="academics">Academics</a></li>
-            <li><a href="#" class="nav-link" data-page="admissions">Admissions</a></li>
-            <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav id="mainNav">
+  <div class="container nav-inner">
+
+    <a href="#" class="nav-logo" onclick="navigate('home');return false;">
+      <img src="https://static.wixstatic.com/media/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg/v1/fill/w_64,h_65,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg" alt="Jephthah Logo">
+      <div class="nav-logo-text">
+        <strong>Jephthah</strong>
+        <span>Comprehensive Secondary School</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#" class="active" data-page="home"       onclick="navigate('home');return false;">Home</a></li>
+      <li><a href="#" data-page="about"      onclick="navigate('about');return false;">About</a></li>
+      <li><a href="#" data-page="academics"  onclick="navigate('academics');return false;">Academics</a></li>
+      <li><a href="#" data-page="admissions" onclick="navigate('admissions');return false;">Admissions</a></li>
+      <li><a href="#" data-page="contact"    onclick="navigate('contact');return false;">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="nav-social-row">
+        <a href="https://www.facebook.com/jephthahschools" target="_blank" aria-label="Facebook">&#xf39e;</a>
+        <a href="#" target="_blank" aria-label="Instagram">&#x1f4f7;</a>
+        <a href="#" target="_blank" aria-label="YouTube">&#x25b6;</a>
+      </div>
+      <button class="btn btn-navy" onclick="openModal()">Apply Now</button>
+    </div>
+
+    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#" data-page="home"       onclick="navigate('home');toggleMobileNav();return false;">Home</a>
+  <a href="#" data-page="about"      onclick="navigate('about');toggleMobileNav();return false;">About</a>
+  <a href="#" data-page="academics"  onclick="navigate('academics');toggleMobileNav();return false;">Academics</a>
+  <a href="#" data-page="admissions" onclick="navigate('admissions');toggleMobileNav();return false;">Admissions</a>
+  <a href="#" data-page="contact"    onclick="navigate('contact');toggleMobileNav();return false;">Contact</a>
+  <a href="#" class="mobile-apply"   onclick="openModal();toggleMobileNav();return false;">Apply Now →</a>
+</div>
+
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="home-hero">
+
+  <!-- Subtle background decoration -->
+  <div class="hero-bg-decoration">
+    <div class="hero-bg-circle hero-bg-circle-1"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="hero-bg-grid"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: Text -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Cambridge IGCSE Top in Nigeria
+        </div>
+
+        <h1 class="hero-title">
+          Excellence,<br>
+          Discipline,<br>
+          <em class="hero-title-gold">Christian Values</em>
+        </h1>
+
+        <p class="hero-sub">
+          Preparing global citizens for tomorrow's challenges — over 29 years of proven academic excellence in Port Harcourt, Rivers State.
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn btn-gold" onclick="openModal()">Apply Now</button>
+          <button class="btn btn-outline-navy" onclick="navigate('about')">Our Story →</button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num" data-count="29" data-suffix="+">29+</span>
+            <span class="hero-stat-label">Years Legacy</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num" data-count="95" data-suffix="%">95%</span>
+            <span class="hero-stat-label">Pass Rate</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num" data-count="1200" data-suffix="+">1,200+</span>
+            <span class="hero-stat-label">Students</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num" data-count="40" data-suffix="+">40+</span>
+            <span class="hero-stat-label">Countries</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Video Card -->
+      <div class="hero-right">
+
+        <!-- ACSI Floating Badge -->
+        <div class="hero-acsi-badge">
+          <div class="hero-acsi-icon">🛡️</div>
+          <div>
+            <div class="hero-acsi-title">ACSI</div>
+            <div class="hero-acsi-sub">Accredited</div>
+          </div>
+        </div>
+
+        <!-- Video Card -->
+        <div class="hero-video-card">
+          <div class="hero-video-frame">
+            <video
+              id="heroVideo"
+              src="hero-video.mp4"
+              autoplay muted loop playsinline
+              poster="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg"
+              preload="auto">
+            </video>
+            <!-- Play/Pause Overlay -->
+            <button class="hero-video-play" id="videoPlayBtn" onclick="toggleHeroVideo()" aria-label="Play video">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+            <div class="hero-video-label">School highlights · autoplay</div>
+          </div>
+
+          <!-- Progress bar decoration -->
+          <div class="hero-video-footer">
+            <div class="hero-video-progress">
+              <div class="hero-video-progress-bar"></div>
+            </div>
+            <div class="hero-video-progress" style="width:55%;">
+              <div class="hero-video-progress-bar" style="width:55%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Award Chip -->
+        <div class="hero-award-chip">
+          <div class="hero-award-chip-icon">🏅</div>
+          <div class="hero-award-chip-text">
+            <div class="hero-award-chip-title">National Academic Award 2023</div>
+            <div class="hero-award-chip-sub">Outstanding in STEM &amp; Humanities</div>
+          </div>
+        </div>
+
+      </div><!-- end hero-right -->
+
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll-hint">
+    <div class="scroll-dot"></div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div id="home">
+
+  <!-- ACCREDITATION BAR -->
+  <div class="accred-bar">
+    <div class="container">
+      <div class="accred-inner">
+        <span class="accred-label">Recognised by</span>
+        <div class="accred-divider"></div>
+        <div class="accred-pills">
+          <span class="accred-pill">WAEC</span>
+          <span class="accred-pill">NECO</span>
+          <span class="accred-pill">Cambridge</span>
+          <span class="accred-pill">SAT</span>
+          <span class="accred-pill">ACT</span>
+          <span class="accred-pill">IELTS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDATION / PILLARS -->
+  <div class="foundation">
+    <div class="container">
+      <div class="foundation-top">
+        <div>
+          <p class="foundation-label">Our Foundation</p>
+          <h2 class="foundation-title">
+            Nurturing characters<br>
+            through disciplined<br>
+            Christian education.
+          </h2>
+        </div>
+        <div class="foundation-stat-row">
+          <div>
+            <span class="foundation-stat-num" data-count="2500" data-suffix="+">2,500+</span>
+            <span class="foundation-stat-txt">Alumni leading across 40+ countries</span>
+          </div>
+          <div>
+            <span class="foundation-stat-num" data-count="15" data-suffix="×">15×</span>
+            <span class="foundation-stat-txt">National Cowbell Mathematics Champions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar-card reveal">
+        <div class="pillar-icon-box">📚</div>
+        <h3>Academic Rigor</h3>
+        <p>A curriculum designed to challenge and inspire, bridging Nigerian requirements with global Cambridge standards.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-icon-box">🛡️</div>
+        <h3>Moral Integrity</h3>
+        <p>Rooted in Christian values, we foster a community where honesty, respect, and discipline are the norm.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-icon-box">🌍</div>
+        <h3>Global Outlook</h3>
+        <p>Equipping students with the skills and confidence to excel in competitive international environments.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS & HIGHLIGHTS -->
+  <section class="results-section">
+    <div class="container">
+      <div class="results-header">
+        <p class="section-label">Track Record</p>
+        <h2 class="section-title">Excellence in Action</h2>
+        <p class="section-sub">Consistently ranked among the top schools in Nigeria, with award-winning students every year.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card reveal">
+          <img class="result-card-img"
+            src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg"
+            alt="Cambridge Top in Nigeria">
+          <div class="result-card-body">
+            <span class="result-tag">Cambridge IGCSE</span>
+            <h3>Top in Nigeria — Cambridge 2024</h3>
+            <p>Our students consistently achieve outstanding Cambridge results, earning national and worldwide recognition.</p>
+          </div>
+        </div>
+        <div class="result-card reveal">
+          <img class="result-card-img"
+            src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg"
+            alt="Cowbell Mathematics">
+          <div class="result-card-body">
+            <span class="result-tag">Mathematics</span>
+            <h3>15× Cowbell Maths National Champions</h3>
+            <p>The most decorated school in the history of the National Cowbell Mathematics Competition.</p>
+          </div>
+        </div>
+        <div class="result-card reveal">
+          <img class="result-card-img"
+            src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg"
+            alt="University Placements">
+          <div class="result-card-body">
+            <span class="result-tag">University Placement</span>
+            <h3>95%+ University Placement Rate</h3>
+            <p>Graduates admitted to leading universities in Nigeria, UK, USA, Canada, and beyond every year.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-band-grid">
+        <div class="stat-item reveal">
+          <span class="stat-item-num" data-count="29" data-suffix="+">29+</span>
+          <span class="stat-item-label">Years of Excellence</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-item-num" data-count="1200" data-suffix="+">1,200+</span>
+          <span class="stat-item-label">Students Enrolled</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-item-num" data-count="2500" data-suffix="+">2,500+</span>
+          <span class="stat-item-label">Alumni Worldwide</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-item-num" data-count="95" data-suffix="%">95%</span>
+          <span class="stat-item-label">Pass Rate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <p class="section-label">What They Say</p>
+      <h2 class="section-title">From Our Community</h2>
+      <div class="testimonials-grid">
+        <div class="testi-card reveal">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Jephthah gave my daughter more than academic excellence — it gave her faith, discipline, and a clear vision for her future. She's now studying Medicine at the University of Ibadan.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">CN</div>
+            <div>
+              <div class="testi-name">Mrs. Chioma Nwosu</div>
+              <div class="testi-role">Parent, Alumni Class of 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Winning the Cowbell Mathematics Competition was a dream I never imagined possible. My teachers at Jephthah believed in me before I believed in myself.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">EO</div>
+            <div>
+              <div class="testi-name">Emeka Okafor</div>
+              <div class="testi-role">Former Student, Class of 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">As a Cambridge IGCSE examiner, I am consistently impressed by the standard of Jephthah candidates. The school's commitment to rigour is evident in every script.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JA</div>
+            <div>
+              <div class="testi-name">Dr. James Adeyemi</div>
+              <div class="testi-role">Cambridge IGCSE Examiner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-inner">
+        <div class="cta-banner-left">
+          <div class="cta-star-icon">⭐</div>
+          <div>
+            <h3>Join the 2025 Enrollment</h3>
+            <p>Limited spaces available for all classes. Applications are now open.</p>
+          </div>
+        </div>
+        <button class="btn btn-gold" onclick="openModal()">Secure a Spot →</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end #home -->
+
+
+<!-- ═══════════════ ABOUT PAGE ═══════════════ -->
+<div id="about" class="page-section">
+  <div class="container">
+    <p class="section-label">Est. 1995</p>
+    <h2 class="section-title">About Jephthah</h2>
+    <p class="section-sub">Excellence, Discipline, Christian Values — nearly three decades of shaping futures in Port Harcourt.</p>
+
+    <div class="about-grid">
+      <img class="about-img"
+        src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg"
+        alt="Jephthah School">
+      <div class="about-text">
+        <p>Jephthah Comprehensive Secondary School was established on <strong>October 6, 1995</strong> with a vision to provide world-class education rooted in Christian values. The name <em>"Jephthah"</em> means <strong>"God Opens"</strong> — reflecting our belief that education opens every door.</p>
+        <p>Over nearly three decades, we have grown from a small initiative to one of the leading institutions in Port Harcourt, known for academic excellence, discipline, and character development. We serve over 1,200 students across Nursery, Primary, and Secondary levels in both boarding and day programmes.</p>
+        <p><strong>Vision:</strong> "Train up a child in the way he should go…" — Proverbs 22:6</p>
+        <p><strong>Mission:</strong> To provide comprehensive Christian education that promotes excellence, self-discipline, and motivation — producing disciples of Christ who advance the global community.</p>
+        <button class="btn btn-navy" onclick="navigate('admissions')">Start Your Application →</button>
+      </div>
+    </div>
+
+    <div class="staff-section">
+      <p class="section-label">Our Campus</p>
+      <h3 class="section-title" style="font-size:1.8rem;">Life at Jephthah</h3>
+      <div class="staff-grid">
+        <div class="staff-card reveal">
+          <img src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Academic Excellence">
+          <div class="staff-card-body">
+            <h4>Academic Excellence</h4>
+            <span>Cambridge · WAEC · NECO</span>
+          </div>
+        </div>
+        <div class="staff-card reveal">
+          <img src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="School Campus">
+          <div class="staff-card-body">
+            <h4>Modern Campus</h4>
+            <span>Port Harcourt · Rivers State</span>
+          </div>
+        </div>
+        <div class="staff-card reveal">
+          <img src="https://static.wixstatic.com/media/0a6e15_c6499263ecd94c209eaafe90229bce66~mv2.jpg/v1/fill/w_396,h_558,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20260204-WA0012.jpg" alt="Student Life">
+          <div class="staff-card-body">
+            <h4>Student Life</h4>
+            <span>Boarding &amp; Day Programmes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;">
+      <p class="section-label">What We Stand On</p>
+      <h3 class="section-title" style="font-size:1.8rem;">Our Four Pillars</h3>
+      <div class="pillars-page">
+        <div class="pillar-page-card reveal"><h3>📚 Pillar 1: Wisdom</h3><p>Academic thinking and intellectual excellence through rigorous curriculum and critical thinking development.</p></div>
+        <div class="pillar-page-card reveal"><h3>⛪ Pillar 2: Spiritual Formation</h3><p>In favour with God — Christian values, character development, and spiritual growth through faith-based education.</p></div>
+        <div class="pillar-page-card reveal"><h3>💪 Pillar 3: Stature</h3><p>Physical &amp; skill development through sports, arts, and practical training for holistic student growth.</p></div>
+        <div class="pillar-page-card reveal"><h3>🤝 Pillar 4: Social-Emotional</h3><p>In favour with men — leadership, empathy, communication, and community engagement skills.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;">
+      <p class="section-label">Our Environment</p>
+      <h3 class="section-title" style="font-size:1.8rem;">A Home Away from Home</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;">
+        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
+          src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Students Learning">
+        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
+          src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg" alt="School Activities">
+        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
+          src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="Campus">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ ACADEMICS PAGE ═══════════════ -->
+<div id="academics" class="page-section">
+  <div class="container">
+    <p class="section-label">World-Class Curriculum</p>
+    <h2 class="section-title">Our Academics</h2>
+    <p class="section-sub">Multiple curricula, international standards, proven excellence — all under one roof in Port Harcourt.</p>
+
+    <div class="acad-grid">
+      <div class="acad-card reveal"><h3>🇳🇬 Nigerian Curriculum</h3><p>WASSCE, NECO, JAMB, Rivers State JSCE — preparing students for Nigerian universities and institutions.</p></div>
+      <div class="acad-card reveal"><h3>🌍 Cambridge IGCSE</h3><p>Global recognition and access to international universities through Cambridge Assessment International Education.</p></div>
+      <div class="acad-card reveal"><h3>📝 SAT / ACT / IELTS</h3><p>Dedicated preparation programmes for international university admissions in the US, UK, and Canada.</p></div>
+      <div class="acad-card reveal"><h3>👶 Montessori &amp; Primary</h3><p>Foundational learning through a play-based, child-centred approach for ages 3–12.</p></div>
+      <div class="acad-card reveal"><h3>🏠 Boarding Programme</h3><p>Comprehensive pastoral care for JSS and SSS boarders — a safe, structured home away from home.</p></div>
+      <div class="acad-card reveal"><h3>🎓 Day Programme</h3><p>Flexible day schooling across all levels with the same academic rigour as the boarding track.</p></div>
+    </div>
+
+    <div style="margin-top:4rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <img style="width:100%;height:260px;object-fit:cover;border-radius:16px;box-shadow:var(--shadow);"
+        src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Classroom at Jephthah">
+      <img style="width:100%;height:260px;object-fit:cover;border-radius:16px;box-shadow:var(--shadow);"
+        src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="Campus Life">
+    </div>
+
+    <div style="margin-top:3.5rem;">
+      <p class="section-label">Track Record</p>
+      <h3 class="section-title" style="font-size:1.8rem;">Key Achievements</h3>
+      <div class="achieve-list">
+        <div class="achieve-item"><span class="achieve-check">✓</span><p>15× National Winners of the Cowbell Mathematics Competition</p></div>
+        <div class="achieve-item"><span class="achieve-check">✓</span><p>Yearly outstanding results in Cambridge IGCSE — including Top in Nigeria and Top in the World awards</p></div>
+        <div class="achieve-item"><span class="achieve-check">✓</span><p>95%+ University Placement Rate — students admitted globally</p></div>
+        <div class="achieve-item"><span class="achieve-check">✓</span><p>International scholarships to universities in the UK, USA, and Canada</p></div>
+        <div class="achieve-item"><span class="achieve-check">✓</span><p>ACSI-Accredited Institution (Association of Christian Schools International)</p></div>
+        <div class="achieve-item"><span class="achieve-check">✓</span><p>Consistent zonal and national competition winners across STEM, arts, and sports</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <button class="btn btn-navy" onclick="openModal()">Apply for Admission →</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ ADMISSIONS PAGE ═══════════════ -->
+<div id="admissions" class="page-section">
+  <div class="container">
+    <p class="section-label">Enrollment 2025</p>
+    <h2 class="section-title">Admissions</h2>
+    <p class="section-sub">Applications are now open for all levels. Begin your Jephthah journey today.</p>
+
+    <div class="admission-layout">
+      <img class="admission-poster"
+        src="https://static.wixstatic.com/media/0a6e15_c6499263ecd94c209eaafe90229bce66~mv2.jpg/v1/fill/w_396,h_558,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20260204-WA0012.jpg"
+        alt="Admissions Poster 2025">
+      <div>
+        <p class="section-label" style="margin-bottom:.75rem;">How to Apply</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div><h4>Inquiry</h4><p>Contact us or download the prospectus to learn more about our programmes and fees.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><h4>Application</h4><p>Submit the online form with required documents — transcripts, passport photo, and medical form.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><h4>Entrance Assessment</h4><p>Students sit an entrance examination to assess academic level and appropriate class placement.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><h4>Parent Interview</h4><p>A short interview with parents and student to discuss expectations and confirm suitability.</p></div></div>
+          <div class="step"><div class="step-num">5</div><div><h4>Admission Letter</h4><p>Receive your acceptance letter and pay the registration deposit to secure your child's place.</p></div></div>
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="btn btn-navy" onclick="openModal()">Apply Online Now →</button>
+          <button class="btn btn-outline" onclick="navigate('contact')">Contact Admissions</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem;">
+      <p class="section-label">Our Environment</p>
+      <h3 class="section-title" style="font-size:1.8rem;">A Home Away from Home</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;">
+        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
+          src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Students Learning">
+        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
+          src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg" alt="School Activities">
+        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
+          src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="Campus">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ CONTACT PAGE ═══════════════ -->
+<div id="contact" class="page-section">
+  <div class="container">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-sub">We'd love to hear from you. Reach out and a member of our team will respond within 24 hours.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="contact-icon">📍</div>
+        <h3>Main Office</h3>
+        <p>Km4, East-West Road, Rumuome-Ozuoba,<br>Port Harcourt, Rivers State<br><br>
+          <strong>+234-803-734-6444</strong><br>Mon–Fri: 8:00 AM – 5:00 PM</p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">📧</div>
+        <h3>Admissions</h3>
+        <p>admissions@jephthah.net<br>
+          <strong>+234-806-536-0147</strong><br><br>Mon–Sat: 8:00 AM – 4:00 PM</p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">💬</div>
+        <h3>General Enquiries</h3>
+        <p>info@jephthah.net<br>
+          <strong>+234-806-261-5330</strong><br><br>Response within 24 hours</p>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <h3>Send Us a Message</h3>
+      <form onsubmit="handleContact(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="e.g. Adaeze Nwosu" required></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com" required></div>
+        </div>
+        <div class="form-group"><label>Subject</label><input type="text" placeholder="How can we help?"></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Write your message here…" required></textarea></div>
+        <button type="submit" class="btn btn-navy">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="https://static.wixstatic.com/media/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg/v1/fill/w_64,h_65,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg" alt="Jephthah Logo">
+          <span class="footer-brand-name">Jephthah<br>Academy</span>
+        </div>
+        <p class="footer-about">Excellence, Discipline, Christian Values. Preparing global citizens since 1995, Port Harcourt, Rivers State, Nigeria.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/jephthahschools" target="_blank" aria-label="Facebook">f</a>
+          <a href="#" target="_blank" aria-label="Instagram">ig</a>
+          <a href="#" target="_blank" aria-label="Twitter">tw</a>
+          <a href="#" target="_blank" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" onclick="navigate('about');return false;">About Us</a></li>
+          <li><a href="#" onclick="navigate('academics');return false;">Academics</a></li>
+          <li><a href="#" onclick="navigate('admissions');return false;">Admissions</a></li>
+          <li><a href="#" onclick="navigate('contact');return false;">Contact</a></li>
+          <li><a href="https://www.jephthah.net" target="_blank">Current Website</a></li>
         </ul>
-        <button class="nav-cta" onclick="openModal('applicationModal')">Apply Now</button>
-    </nav>
+      </div>
 
-    <!-- Home Page -->
-    <div id="home" class="page-section active">
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="hero-content">
-                <h1>Excellence, Discipline, Christian Values</h1>
-                <p>Preparing Global Citizens for Tomorrow's Challenges</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="openModal('applicationModal')">Apply Now</button>
-                    <button class="btn btn-secondary" onclick="scrollToSection('why-section')">Learn More</button>
-                </div>
-            </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Location</h4>
+        <p>Km4, East-West Road,<br>Rumuome-Ozuoba,<br>Port Harcourt,<br>Rivers State, Nigeria.<br><br>
+          <strong style="color:var(--white);">+234-803-734-6444</strong><br>
+          info@jephthah.net
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2025 Jephthah Comprehensive Secondary School. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a>
+        &nbsp;·&nbsp;
+        <a href="#">Terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════ APPLICATION MODAL ═══════════════ -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>Apply to Jephthah</h2>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <form onsubmit="handleApply(event)" class="modal-form">
+      <div class="form-group">
+        <label>Student's Full Name</label>
+        <input type="text" placeholder="e.g. Emeka Obi" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Parent's Email</label>
+          <input type="email" placeholder="parent@example.com" required>
         </div>
-
-        <!-- Why Jephthah Section -->
-        <section id="why-section">
-            <h2>Why Choose Jephthah?</h2>
-            <p>Over 29 years of excellence in education</p>
-            <div class="why-section">
-                <div class="feature-card">
-                    <h3>📚 Four Pillars of Excellence</h3>
-                    <p>We develop students in Wisdom (Academic), Spiritual Formation, Stature (Physical & Skills), and Social-Emotional growth.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🌍 International Accreditation</h3>
-                    <p>ACSI-accredited institution offering Cambridge IGCSE, SAT, ACT, and IELTS alongside Nigerian curricula.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="stats">
-            <h2>By The Numbers</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">29</div>
-                    <div class="stat-label">Years of Excellence</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">1,200+</div>
-                    <div class="stat-label">Students Across All Levels</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">45+</div>
-                    <div class="stat-label">Dedicated Faculty & Staff</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">95%+</div>
-                    <div class="stat-label">University Admission Rate</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- News Section -->
-        <section class="news">
-            <h2>Latest News</h2>
-            <p>Stay updated with what's happening at Jephthah</p>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image">📰</div>
-                    <div class="news-content">
-                        <div class="news-date">March 15, 2025</div>
-                        <h3>2025 Cambridge IGCSE Results Released</h3>
-                        <p>Exceptional performance across all subjects with 87% of students achieving A-C grades.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-image">🏆</div>
-                    <div class="news-content">
-                        <div class="news-date">March 10, 2025</div>
-                        <h3>National Math Competition Victory</h3>
-                        <p>Jephthah wins Cowbell Mathematics Competition for the 15th consecutive year.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-image">🎓</div>
-                    <div class="news-content">
-                        <div class="news-date">March 5, 2025</div>
-                        <h3>New Science and Innovation Center Opening</h3>
-                        <p>State-of-the-art facility launching next term with robotics and AI labs.</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <h2>What Parents & Students Say</h2>
-            <p>Real voices from our Jephthah community</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Jephthah transformed my son from a shy student to a confident leader. The holistic approach to education truly makes a difference."</p>
-                    <p class="testimonial-author">Mrs. Adeyemi</p>
-                    <p class="testimonial-role">Parent, Senior Secondary 3</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The boarding experience at Jephthah prepared me for university and independence. I made lifelong friends and gained invaluable skills."</p>
-                    <p class="testimonial-author">Chioma Okafor</p>
-                    <p class="testimonial-role">Alumni, Class of 2023</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The Cambridge curriculum combined with Christian values creates an excellent foundation. My daughter is thriving academically and spiritually."</p>
-                    <p class="testimonial-author">Pastor Ahmed</p>
-                    <p class="testimonial-role">Parent, Junior Secondary 2</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <div class="cta">
-            <h2>Ready to Transform Your Child's Future?</h2>
-            <p>Admission is open for all classes</p>
-            <button class="btn btn-secondary" onclick="openModal('applicationModal')">Apply Online</button>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+234 800 000 0000" required>
         </div>
-    </div>
-
-    <!-- About Page -->
-    <div id="about" class="page-section">
-        <section>
-            <h2>About Jephthah</h2>
-            <p>Established 1995 | Excellence, Discipline, Christian Values</p>
-            
-            <div class="why-section">
-                <div>
-                    <h3 style="color: var(--primary); font-family: var(--font-display); margin-top: 2rem;">Our History</h3>
-                    <p style="text-align: left; color: var(--neutral-600); margin-bottom: 2rem;">
-                        Jephthah Comprehensive Secondary School was established on October 6, 1995, as a vision to provide world-class education rooted in Christian values. The name "Jephthah" means "God Opens," reflecting our belief that education opens doors for our students.
-                    </p>
-                    <p style="text-align: left; color: var(--neutral-600);">
-                        Over nearly three decades, we have grown from a small initiative to a leading educational institution in Port Harcourt, known for academic excellence, discipline, and character development. We serve over 1,200 students across nursery, primary, and secondary levels, in both boarding and day programs.
-                    </p>
-                </div>
-                <div>
-                    <h3 style="color: var(--primary); font-family: var(--font-display); margin-top: 2rem;">Vision & Mission</h3>
-                    <p style="text-align: left; color: var(--neutral-600); margin-bottom: 1rem;"><strong>Vision:</strong> "Train up a child in the way he should go, and when he is old, he will not depart from it" - Proverbs 22:6</p>
-                    <p style="text-align: left; color: var(--neutral-600);">
-                        <strong>Mission:</strong> To provide comprehensive Christian education in a supportive environment that promotes excellence in learning, self-discipline, and motivation, ensuring that students become disciples of Jesus Christ and advance the global community.
-                    </p>
-                </div>
-            </div>
-
-            <h2 style="margin-top: 4rem;">Our Four Pillars</h2>
-            <div class="pillar-grid">
-                <div class="pillar-card">
-                    <div class="pillar-icon">📚</div>
-                    <h3>Pillar 1: Wisdom</h3>
-                    <p>Academic thinking and intellectual excellence through rigorous curriculum and critical thinking development.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon">⛪</div>
-                    <h3>Pillar 2: Spiritual Formation</h3>
-                    <p>In favour with God - Christian values, character development, and spiritual growth through faith-based education.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon">💪</div>
-                    <h3>Pillar 3: Stature</h3>
-                    <p>Physical & skill development through sports, arts, and practical training for holistic student development.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon">🤝</div>
-                    <h3>Pillar 4: Social-Emotional</h3>
-                    <p>In favour with men - leadership, empathy, communication, and community engagement skills.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Academics Page -->
-    <div id="academics" class="page-section">
-        <section>
-            <h2>Our Academics</h2>
-            <p>Multiple Curricula | International Standards | Proven Excellence</p>
-            
-            <div class="pillar-grid" style="margin-top: 3rem;">
-                <div class="pillar-card">
-                    <h3>🇳🇬 Nigerian Curriculum</h3>
-                    <p>WASSCE, NECO, JAMB, Rivers State JSCE - Preparing students for Nigerian universities and institutions.</p>
-                </div>
-                <div class="pillar-card">
-                    <h3>🌍 International Curriculum</h3>
-                    <p>Cambridge IGCSE, SAT, ACT, IELTS - Global recognition and access to international universities.</p>
-                </div>
-                <div class="pillar-card">
-                    <h3>👶 Montessori & Primary</h3>
-                    <p>Foundational learning through play-based, child-centered approach for ages 3-12.</p>
-                </div>
-                <div class="pillar-card">
-                    <h3>🎓 Boarding & Day</h3>
-                    <p>Flexible options for Junior and Senior Secondary with comprehensive pastoral care.</p>
-                </div>
-            </div>
-
-            <h3 style="text-align: center; margin-top: 3rem; color: var(--primary); font-family: var(--font-display); font-size: 1.5rem;">Our Achievements</h3>
-            <div style="background: var(--neutral-100); padding: 2rem; border-radius: 12px; margin-top: 2rem; text-align: left;">
-                <ul style="list-style: none; color: var(--neutral-700);">
-                    <li style="margin-bottom: 1rem;">✓ Consistent National Winners of Cowbell Mathematics Competition (15 years running)</li>
-                    <li style="margin-bottom: 1rem;">✓ Yearly Excellent Results in Cambridge IGCSE Examinations</li>
-                    <li style="margin-bottom: 1rem;">✓ 95%+ University Placement Rate</li>
-                    <li style="margin-bottom: 1rem;">✓ International Scholarships to UK, USA, and Canadian Universities</li>
-                    <li style="margin-bottom: 1rem;">✓ ACSI-Accredited Institution (Association of Christian Schools International)</li>
-                    <li>✓ Consistent Zonal Winners for Multiple National Competitions</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-
-    <!-- Admissions Page -->
-    <div id="admissions" class="page-section">
-        <section>
-            <h2>Admissions</h2>
-            <p>Start Your Jephthah Journey | Applications Now Open</p>
-            
-            <h3 style="text-align: left; color: var(--primary); font-family: var(--font-display); margin-top: 3rem; margin-bottom: 1.5rem;">Admission Process</h3>
-            <div style="background: var(--neutral-100); padding: 2rem; border-radius: 12px; margin-bottom: 3rem;">
-                <div style="display: grid; gap: 1.5rem;">
-                    <div style="border-left: 4px solid var(--secondary); padding-left: 1rem;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Step 1: Inquiry</h4>
-                        <p style="color: var(--neutral-600);">Contact us or download the prospectus to learn more about our programs.</p>
-                    </div>
-                    <div style="border-left: 4px solid var(--secondary); padding-left: 1rem;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Step 2: Application</h4>
-                        <p style="color: var(--neutral-600);">Submit online form with required documents (transcripts, passport, medical forms).</p>
-                    </div>
-                    <div style="border-left: 4px solid var(--secondary); padding-left: 1rem;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Step 3: Assessment</h4>
-                        <p style="color: var(--neutral-600);">Take entrance examination to assess academic level and placement.</p>
-                    </div>
-                    <div style="border-left: 4px solid var(--secondary); padding-left: 1rem;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Step 4: Interview</h4>
-                        <p style="color: var(--neutral-600);">Parent and student interview to ensure cultural fit and discuss expectations.</p>
-                    </div>
-                    <div style="border-left: 4px solid var(--secondary); padding-left: 1rem;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Step 5: Admission Letter</h4>
-                        <p style="color: var(--neutral-600);">Receive acceptance and payment of registration deposit to secure placement.</p>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn btn-primary" onclick="openModal('applicationModal')" style="width: 200px;">Apply Online Now</button>
-        </section>
-    </div>
-
-    <!-- Contact Page -->
-    <div id="contact" class="page-section">
-        <section>
-            <h2>Contact Us</h2>
-            <p>Get in Touch | We'd Love to Hear From You</p>
-            
-            <div class="pillar-grid" style="margin-top: 3rem;">
-                <div class="feature-card">
-                    <h3>📍 Main Office</h3>
-                    <p>Km4, East-West Road, Rumuome-Ozuoba, Port Harcourt, Rivers State</p>
-                    <p style="margin-top: 1rem; font-weight: 600;">+234-803-734-6444</p>
-                    <p>Monday-Friday: 8:00 AM - 5:00 PM</p>
-                </div>
-                <div class="feature-card">
-                    <h3>📧 Admissions</h3>
-                    <p>Email: admissions@jcss.ng</p>
-                    <p>Phone: +234-806-536-0147</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--neutral-600);">Hours: Monday-Saturday 8:00 AM - 4:00 PM</p>
-                </div>
-                <div class="feature-card">
-                    <h3>💬 General Enquiries</h3>
-                    <p>Email: info@jcss.ng</p>
-                    <p>Phone: +234-8062615330</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--neutral-600);">Available 24/7 (Response within 24 hours)</p>
-                </div>
-            </div>
-
-            <div style="background: var(--neutral-100); padding: 2rem; border-radius: 12px; margin-top: 3rem;">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">Send us a Message</h3>
-                <form onsubmit="handleFormSubmit(event)">
-                    <div style="display: grid; gap: 1rem;">
-                        <input type="text" placeholder="Full Name" required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-family: var(--font-body);">
-                        <input type="email" placeholder="Email Address" required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-family: var(--font-body);">
-                        <textarea placeholder="Your Message" rows="5" required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px; font-family: var(--font-body);"></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </div>
-
-    <!-- Application Modal -->
-    <div id="applicationModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('applicationModal')">&times;</span>
-            <h2 style="color: var(--primary); font-family: var(--font-display); margin-bottom: 1.5rem;">Apply to Jephthah</h2>
-            <form onsubmit="handleApplicationSubmit(event)">
-                <div style="display: grid; gap: 1rem;">
-                    <input type="text" placeholder="Student's Full Name" required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px;">
-                    <input type="email" placeholder="Parent's Email" required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px;">
-                    <input type="tel" placeholder="Contact Phone" required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px;">
-                    <select required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px;">
-                        <option value="">Select Class/Level</option>
-                        <option value="nursery">Nursery</option>
-                        <option value="primary">Primary (Basic 1-6)</option>
-                        <option value="jss">Junior Secondary (Boarding)</option>
-                        <option value="jss-day">Junior Secondary (Day)</option>
-                        <option value="ss">Senior Secondary (Boarding)</option>
-                        <option value="ss-day">Senior Secondary (Day)</option>
-                    </select>
-                    <select required style="padding: 12px; border: 1px solid var(--neutral-300); border-radius: 8px;">
-                        <option value="">Select Curriculum</option>
-                        <option value="nigerian">Nigerian Curriculum</option>
-                        <option value="international">International (Cambridge)</option>
-                        <option value="both">Both</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Submit Application</button>
-                </div>
-            </form>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Class / Level</label>
+          <select required>
+            <option value="">Select level</option>
+            <option>Nursery</option>
+            <option>Primary (Basic 1–6)</option>
+            <option>JSS – Day</option>
+            <option>JSS – Boarding</option>
+            <option>SSS – Day</option>
+            <option>SSS – Boarding</option>
+          </select>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>About Jephthah</h4>
-                <p>Excellence, Discipline, Christian Values. Preparing global citizens since 1995.</p>
-                <div class="social-icons">
-                    <a href="#" title="Facebook">f</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="Twitter">𝕏</a>
-                    <a href="#" title="YouTube">▶</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-                    <li><a href="#" class="nav-link" data-page="academics">Academics</a></li>
-                    <li><a href="#" class="nav-link" data-page="admissions">Admissions</a></li>
-                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <ul>
-                    <li><a href="tel:+234-803-734-6444">+234-803-734-6444</a></li>
-                    <li><a href="mailto:info@jcss.ng">info@jcss.ng</a></li>
-                    <li>Port Harcourt, Rivers State</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Get the latest news and updates from Jephthah</p>
-                <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                    <input type="email" placeholder="Your email" style="flex: 1; padding: 10px; border: none; border-radius: 6px;">
-                    <button style="background: var(--accent); color: var(--white); padding: 10px 15px; border: none; border-radius: 6px; cursor: pointer;">Subscribe</button>
-                </div>
-            </div>
+        <div class="form-group">
+          <label>Curriculum</label>
+          <select required>
+            <option value="">Select curriculum</option>
+            <option>Nigerian Curriculum</option>
+            <option>International (Cambridge)</option>
+            <option>Both</option>
+          </select>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Jephthah Comprehensive Secondary School. All rights reserved. | <a href="#" style="color: var(--accent);">Privacy Policy</a></p>
-        </div>
-    </footer>
+      </div>
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <textarea placeholder="Any special requirements or questions…" style="min-height:80px;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-navy" style="width:100%;justify-content:center;">Submit Application</button>
+    </form>
+  </div>
+</div>
 
-    <script>
-        // Navigation handling
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const page = link.getAttribute('data-page');
-                showPage(page);
-                
-                // Update active nav link
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-            });
-        });
-
-        function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Modal handling
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-        }
-
-        // Close modal on background click
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        // Form submissions
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your message! We will get back to you within 24 hours.');
-            event.target.reset();
-        }
-
-        function handleApplicationSubmit(event) {
-            event.preventDefault();
-            alert('Application submitted successfully! We will review your application and contact you soon.');
-            closeModal('applicationModal');
-            event.target.reset();
-        }
-
-        // Prevent default navigation
-        document.querySelectorAll('a[href="#"]').forEach(link => {
-            if (!link.classList.contains('nav-link')) {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                });
-            }
-        });
-    </script>
+<script src="main.js"></script>
 </body>
 </html>
