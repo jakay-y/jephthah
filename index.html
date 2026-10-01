@@ -3,694 +3,343 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jephthah Comprehensive Secondary School — Excellence, Discipline, Christian Values. Port Harcourt, Rivers State, Nigeria." />
-  <title>Jephthah Comprehensive Secondary School | Port Harcourt</title>
+  <meta name="description" content="Naebi Dynamic Concepts Ltd — efficient levy collection for civilian helicopter movement. Offices in Port Harcourt and Lagos, Nigeria." />
+  <meta name="theme-color" content="#0C336C" />
+  <title>Naebi Dynamic Concepts Ltd | Levy Collection for Civilian Helicopter Movement</title>
+  <link rel="icon" type="image/png" href="assets/naebi-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav id="mainNav">
-  <div class="container nav-inner">
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <a href="#" class="nav-logo" onclick="navigate('home');return false;">
-      <img src="https://static.wixstatic.com/media/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg/v1/fill/w_64,h_65,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg" alt="Jephthah Logo">
-      <div class="nav-logo-text">
-        <strong>Jephthah</strong>
-        <span>Comprehensive Secondary School</span>
-      </div>
+<!-- ═══════════════ LOADER (Brief 01) ═══════════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <span class="logo-plate logo-plate--lg">
+      <img class="logo logo--loader" src="assets/naebi-logo.png" alt="" width="280" height="296" />
+    </span>
+    <span class="loader-line"><span></span></span>
+  </div>
+</div>
+
+<!-- ═══════════════ HEADER (Brief 02) ═══════════════ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="Naebi Dynamic Concepts Ltd — home">
+      <span class="logo-plate">
+        <img class="logo" src="assets/naebi-logo.png" alt="Naebi Dynamic Concepts Ltd" width="280" height="296" />
+      </span>
     </a>
 
-    <ul class="nav-links">
-      <li><a href="#" class="active" data-page="home"       onclick="navigate('home');return false;">Home</a></li>
-      <li><a href="#" data-page="about"      onclick="navigate('about');return false;">About</a></li>
-      <li><a href="#" data-page="academics"  onclick="navigate('academics');return false;">Academics</a></li>
-      <li><a href="#" data-page="admissions" onclick="navigate('admissions');return false;">Admissions</a></li>
-      <li><a href="#" data-page="contact"    onclick="navigate('contact');return false;">Contact</a></li>
-    </ul>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#operations">Operations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-    <div class="nav-right">
-      <div class="nav-social-row">
-        <a href="https://www.facebook.com/jephthahschools" target="_blank" aria-label="Facebook">&#xf39e;</a>
-        <a href="#" target="_blank" aria-label="Instagram">&#x1f4f7;</a>
-        <a href="#" target="_blank" aria-label="YouTube">&#x25b6;</a>
-      </div>
-      <button class="btn btn-navy" onclick="openModal()">Apply Now</button>
+    <div class="header-actions">
+      <a href="#contact" class="btn btn--primary btn--sm header-cta">Make Payment</a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+</header>
 
-    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer" hidden>
+  <div class="drawer-head">
+    <img class="logo" src="assets/naebi-logo.png" alt="Naebi Dynamic Concepts Ltd" width="280" height="296" />
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-
   </div>
-</nav>
-
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="#" data-page="home"       onclick="navigate('home');toggleMobileNav();return false;">Home</a>
-  <a href="#" data-page="about"      onclick="navigate('about');toggleMobileNav();return false;">About</a>
-  <a href="#" data-page="academics"  onclick="navigate('academics');toggleMobileNav();return false;">Academics</a>
-  <a href="#" data-page="admissions" onclick="navigate('admissions');toggleMobileNav();return false;">Admissions</a>
-  <a href="#" data-page="contact"    onclick="navigate('contact');toggleMobileNav();return false;">Contact</a>
-  <a href="#" class="mobile-apply"   onclick="openModal();toggleMobileNav();return false;">Apply Now →</a>
+  <nav aria-label="Mobile">
+    <ul class="drawer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#operations">Operations</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="drawer-foot">
+    <a href="#contact" class="btn btn--primary btn--block">Make Payment</a>
+    <p class="drawer-meta">Port Harcourt &middot; Lagos<br />Mon&ndash;Fri, 8:00&ndash;17:00 WAT</p>
+  </div>
 </div>
 
+<main id="main">
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<section id="home-hero">
+  <!-- ═══════════════ HERO (Brief 03) ═══════════════ -->
+  <section class="hero" id="top" aria-labelledby="heroTitle">
+    <div class="hero-media media" style="--img:url('assets/images/hero.webp')" role="img" aria-label="Helicopter crew in the cockpit"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-ghost" aria-hidden="true">NAEBI</div>
 
-  <!-- Subtle background decoration -->
-  <div class="hero-bg-decoration">
-    <div class="hero-bg-circle hero-bg-circle-1"></div>
-    <div class="hero-bg-circle hero-bg-circle-2"></div>
-    <div class="hero-bg-grid"></div>
-  </div>
-
-  <div class="container">
-    <div class="hero-grid">
-
-      <!-- Left: Text -->
-      <div class="hero-left">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Cambridge IGCSE Top in Nigeria
-        </div>
-
-        <h1 class="hero-title">
-          Excellence,<br>
-          Discipline,<br>
-          <em class="hero-title-gold">Christian Values</em>
-        </h1>
-
-        <p class="hero-sub">
-          Preparing global citizens for tomorrow's challenges — over 29 years of proven academic excellence in Port Harcourt, Rivers State.
-        </p>
-
-        <div class="hero-cta">
-          <button class="btn btn-gold" onclick="openModal()">Apply Now</button>
-          <button class="btn btn-outline-navy" onclick="navigate('about')">Our Story →</button>
-        </div>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-count="29" data-suffix="+">29+</span>
-            <span class="hero-stat-label">Years Legacy</span>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-count="95" data-suffix="%">95%</span>
-            <span class="hero-stat-label">Pass Rate</span>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-count="1200" data-suffix="+">1,200+</span>
-            <span class="hero-stat-label">Students</span>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-count="40" data-suffix="+">40+</span>
-            <span class="hero-stat-label">Countries</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Video Card -->
-      <div class="hero-right">
-
-        <!-- ACSI Floating Badge -->
-        <div class="hero-acsi-badge">
-          <div class="hero-acsi-icon">🛡️</div>
-          <div>
-            <div class="hero-acsi-title">ACSI</div>
-            <div class="hero-acsi-sub">Accredited</div>
-          </div>
-        </div>
-
-        <!-- Video Card -->
-        <div class="hero-video-card">
-          <div class="hero-video-frame">
-            <video
-              id="heroVideo"
-              src="hero-video.mp4"
-              autoplay muted loop playsinline
-              poster="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg"
-              preload="auto">
-            </video>
-            <!-- Play/Pause Overlay -->
-            <button class="hero-video-play" id="videoPlayBtn" onclick="toggleHeroVideo()" aria-label="Play video">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </button>
-            <div class="hero-video-label">School highlights · autoplay</div>
-          </div>
-
-          <!-- Progress bar decoration -->
-          <div class="hero-video-footer">
-            <div class="hero-video-progress">
-              <div class="hero-video-progress-bar"></div>
-            </div>
-            <div class="hero-video-progress" style="width:55%;">
-              <div class="hero-video-progress-bar" style="width:55%;"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Award Chip -->
-        <div class="hero-award-chip">
-          <div class="hero-award-chip-icon">🏅</div>
-          <div class="hero-award-chip-text">
-            <div class="hero-award-chip-title">National Academic Award 2023</div>
-            <div class="hero-award-chip-sub">Outstanding in STEM &amp; Humanities</div>
-          </div>
-        </div>
-
-      </div><!-- end hero-right -->
-
-    </div>
-  </div>
-
-  <!-- Scroll hint -->
-  <div class="hero-scroll-hint">
-    <div class="scroll-dot"></div>
-  </div>
-
-</section>
-
-
-<!-- ═══════════════ HOME PAGE ═══════════════ -->
-<div id="home">
-
-  <!-- ACCREDITATION BAR -->
-  <div class="accred-bar">
-    <div class="container">
-      <div class="accred-inner">
-        <span class="accred-label">Recognised by</span>
-        <div class="accred-divider"></div>
-        <div class="accred-pills">
-          <span class="accred-pill">WAEC</span>
-          <span class="accred-pill">NECO</span>
-          <span class="accred-pill">Cambridge</span>
-          <span class="accred-pill">SAT</span>
-          <span class="accred-pill">ACT</span>
-          <span class="accred-pill">IELTS</span>
-        </div>
+    <div class="container hero-content">
+      <p class="eyebrow eyebrow--on-dark reveal">Naebi Dynamic Concepts Ltd</p>
+      <h1 class="hero-title reveal" id="heroTitle">Efficient Levy Collection for Civilian Helicopter Movement</h1>
+      <p class="hero-lead reveal">Transparent, compliant and accountable levy administration for helicopter operators across Nigeria, from our offices in Port Harcourt and Lagos.</p>
+      <div class="hero-ctas reveal">
+        <a href="#contact" class="btn btn--primary">Make Payment</a>
+        <a href="#operations" class="btn btn--outline">See Our Process</a>
       </div>
     </div>
-  </div>
 
-  <!-- FOUNDATION / PILLARS -->
-  <div class="foundation">
+    <div class="container hero-foot">
+      <span class="status-chip"><span class="dot" aria-hidden="true"></span>Serving operators from Port Harcourt &middot; Lagos</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT (Brief 04) ═══════════════ -->
+  <section class="section about" id="about" aria-labelledby="aboutTitle">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <p class="eyebrow reveal">About Naebi</p>
+        <h2 class="reveal" id="aboutTitle">Accountable levy administration, built for aviation</h2>
+        <p class="lead reveal">Naebi Dynamic Concepts Ltd manages the collection of levies on civilian helicopter movement, giving operators a clear, dependable process and giving regulators an accurate, auditable record.</p>
+        <p class="reveal">We combine financial discipline with a working knowledge of aviation operations, so every movement is recorded correctly and every payment is accounted for.</p>
+        <blockquote class="pull-quote reveal">&ldquo;Our aim is to be a first-rate global leader in aviation levy administration.&rdquo;</blockquote>
+      </div>
+
+      <div class="about-visual">
+        <div class="logo-stage reveal-media">
+          <img class="logo logo--stage" src="assets/naebi-logo.png" alt="Naebi Dynamic Concepts Ltd" width="280" height="296" />
+        </div>
+        <figure class="dossier reveal-media">
+          <div class="media media--portrait" style="--img:url('assets/images/about.webp')" role="img" aria-label="Aircraft mechanic at work"></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PILLARS (Brief 05) ═══════════════ -->
+  <section class="section section--dark pillars" id="services" aria-labelledby="pillarsTitle">
     <div class="container">
-      <div class="foundation-top">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--on-dark reveal">What we stand on</p>
+        <h2 class="reveal" id="pillarsTitle">Our pillars</h2>
+      </div>
+
+      <div class="pillar-grid">
+        <article class="pillar reveal-media">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/></svg>
+          <h3>Financial Integrity</h3>
+          <p>Every levy is recorded, reconciled and reported. Operators and regulators can trace each payment from the movement it covers to the account it reaches.</p>
+        </article>
+        <article class="pillar reveal-media">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          <h3>Security &amp; Safety</h3>
+          <p>Payment data and operator records are handled with strict access controls. We work alongside aviation safety standards, never around them.</p>
+        </article>
+        <article class="pillar reveal-media">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2.5-5 2.5"/></svg>
+          <h3>Customer Support</h3>
+          <p>A responsive team answers operator questions quickly. Clearance queries, payment confirmations and records are handled by people who know the process.</p>
+        </article>
+      </div>
+
+      <article class="pillar pillar--wide reveal-media">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>
         <div>
-          <p class="foundation-label">Our Foundation</p>
-          <h2 class="foundation-title">
-            Nurturing characters<br>
-            through disciplined<br>
-            Christian education.
-          </h2>
+          <h3>Regulatory Compliance</h3>
+          <p>Our processes are aligned with Nigeria's aviation authorities, so operators meet their obligations with a single, compliant payment.</p>
         </div>
-        <div class="foundation-stat-row">
-          <div>
-            <span class="foundation-stat-num" data-count="2500" data-suffix="+">2,500+</span>
-            <span class="foundation-stat-txt">Alumni leading across 40+ countries</span>
-          </div>
-          <div>
-            <span class="foundation-stat-num" data-count="15" data-suffix="×">15×</span>
-            <span class="foundation-stat-txt">National Cowbell Mathematics Champions</span>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
-    <div class="pillars">
-      <div class="pillar-card reveal">
-        <div class="pillar-icon-box">📚</div>
-        <h3>Academic Rigor</h3>
-        <p>A curriculum designed to challenge and inspire, bridging Nigerian requirements with global Cambridge standards.</p>
-      </div>
-      <div class="pillar-card reveal">
-        <div class="pillar-icon-box">🛡️</div>
-        <h3>Moral Integrity</h3>
-        <p>Rooted in Christian values, we foster a community where honesty, respect, and discipline are the norm.</p>
-      </div>
-      <div class="pillar-card reveal">
-        <div class="pillar-icon-box">🌍</div>
-        <h3>Global Outlook</h3>
-        <p>Equipping students with the skills and confidence to excel in competitive international environments.</p>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <!-- RESULTS & HIGHLIGHTS -->
-  <section class="results-section">
-    <div class="container">
-      <div class="results-header">
-        <p class="section-label">Track Record</p>
-        <h2 class="section-title">Excellence in Action</h2>
-        <p class="section-sub">Consistently ranked among the top schools in Nigeria, with award-winning students every year.</p>
+  <!-- ═══════════════ OPERATIONAL EXCELLENCE (Brief 06) ═══════════════ -->
+  <section class="section opex" id="operations" aria-labelledby="opexTitle">
+    <div class="opex-grid">
+      <div class="opex-copy">
+        <p class="eyebrow reveal">Operational Excellence</p>
+        <h2 class="reveal" id="opexTitle">From movement to clearance, without the friction</h2>
+        <p class="reveal">Each helicopter movement is logged, the applicable levy is assessed and the operator is notified. Once payment is confirmed, clearance is issued and the record is closed. It is a simple process, run with care at every step.</p>
+        <ol class="steps reveal">
+          <li><span>01</span>Movement logged</li>
+          <li><span>02</span>Levy assessed</li>
+          <li><span>03</span>Payment confirmed</li>
+          <li><span>04</span>Clearance issued</li>
+        </ol>
+        <a href="#faq" class="text-link reveal">Discover more <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="results-grid">
-        <div class="result-card reveal">
-          <img class="result-card-img"
-            src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg"
-            alt="Cambridge Top in Nigeria">
-          <div class="result-card-body">
-            <span class="result-tag">Cambridge IGCSE</span>
-            <h3>Top in Nigeria — Cambridge 2024</h3>
-            <p>Our students consistently achieve outstanding Cambridge results, earning national and worldwide recognition.</p>
-          </div>
-        </div>
-        <div class="result-card reveal">
-          <img class="result-card-img"
-            src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg"
-            alt="Cowbell Mathematics">
-          <div class="result-card-body">
-            <span class="result-tag">Mathematics</span>
-            <h3>15× Cowbell Maths National Champions</h3>
-            <p>The most decorated school in the history of the National Cowbell Mathematics Competition.</p>
-          </div>
-        </div>
-        <div class="result-card reveal">
-          <img class="result-card-img"
-            src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg"
-            alt="University Placements">
-          <div class="result-card-body">
-            <span class="result-tag">University Placement</span>
-            <h3>95%+ University Placement Rate</h3>
-            <p>Graduates admitted to leading universities in Nigeria, UK, USA, Canada, and beyond every year.</p>
-          </div>
-        </div>
+      <figure class="opex-media reveal-media">
+        <div class="media media--bleed" data-parallax style="--img:url('assets/images/operations.webp')" role="img" aria-label="Aircraft maintenance engineer inspecting a helicopter"></div>
+        <figcaption>Aircraft maintenance &amp; ground inspection</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STATS (Brief 07) ═══════════════ -->
+  <!-- Replace each data-target with Naebi's real figures before launch. -->
+  <section class="stats" aria-label="Naebi in numbers">
+    <div class="container stat-grid">
+      <div class="stat">
+        <span class="stat-num" data-target="1200" data-suffix="+">1200+</span>
+        <span class="stat-label">Helicopter movements logged</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="10" data-suffix="+">10+</span>
+        <span class="stat-label">Years of aviation expertise</span>
+      </div>
+      <div class="stat stat--ring">
+        <span class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="54" class="ring-track"/>
+            <circle cx="60" cy="60" r="54" class="ring-fill" data-ring="98"/>
+          </svg>
+          <span class="stat-num" data-target="98" data-suffix="%">98%</span>
+        </span>
+        <span class="stat-label">Compliance rate</span>
       </div>
     </div>
   </section>
 
-  <!-- STATS BAND -->
-  <div class="stats-band">
+  <!-- ═══════════════ PARTNERS (Brief 08) ═══════════════ -->
+  <section class="partners" aria-labelledby="partnersTitle">
     <div class="container">
-      <div class="stats-band-grid">
-        <div class="stat-item reveal">
-          <span class="stat-item-num" data-count="29" data-suffix="+">29+</span>
-          <span class="stat-item-label">Years of Excellence</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-item-num" data-count="1200" data-suffix="+">1,200+</span>
-          <span class="stat-item-label">Students Enrolled</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-item-num" data-count="2500" data-suffix="+">2,500+</span>
-          <span class="stat-item-label">Alumni Worldwide</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-item-num" data-count="95" data-suffix="%">95%</span>
-          <span class="stat-item-label">Pass Rate</span>
-        </div>
-      </div>
+      <p class="eyebrow eyebrow--muted" id="partnersTitle">Operating in partnership with</p>
     </div>
-  </div>
+    <div class="partner-track">
+      <ul class="partner-list">
+        <li title="Nigerian Airspace Management Agency">NAMA</li>
+        <li title="International Civil Aviation Organization">ICAO</li>
+        <li title="Nigerian National Petroleum Company">NNPC</li>
+        <li title="Federal Airports Authority of Nigeria">FAAN</li>
+        <li title="International Air Transport Association">IATA</li>
+        <li title="Nigerian Civil Aviation Authority">NCAA</li>
+      </ul>
+      <ul class="partner-list" aria-hidden="true">
+        <li>NAMA</li><li>ICAO</li><li>NNPC</li><li>FAAN</li><li>IATA</li><li>NCAA</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <p class="section-label">What They Say</p>
-      <h2 class="section-title">From Our Community</h2>
-      <div class="testimonials-grid">
-        <div class="testi-card reveal">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Jephthah gave my daughter more than academic excellence — it gave her faith, discipline, and a clear vision for her future. She's now studying Medicine at the University of Ibadan.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">CN</div>
-            <div>
-              <div class="testi-name">Mrs. Chioma Nwosu</div>
-              <div class="testi-role">Parent, Alumni Class of 2020</div>
-            </div>
-          </div>
+  <!-- ═══════════════ FAQ (Brief 09) ═══════════════ -->
+  <section class="section faq" id="faq" aria-labelledby="faqTitle">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center">
+        <p class="eyebrow reveal">FAQ</p>
+        <h2 class="reveal" id="faqTitle">Levy and clearance questions</h2>
+      </div>
+
+      <div class="accordion" id="accordion">
+        <div class="acc-item">
+          <h3><button class="acc-btn" aria-expanded="false" aria-controls="faq1" id="faq1btn">How is the levy calculated?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="acc-panel" id="faq1" role="region" aria-labelledby="faq1btn"><div><p>The levy is assessed per helicopter movement according to the approved schedule. Contact our team for the current schedule that applies to your operation.</p></div></div>
         </div>
-        <div class="testi-card reveal">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Winning the Cowbell Mathematics Competition was a dream I never imagined possible. My teachers at Jephthah believed in me before I believed in myself.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">EO</div>
-            <div>
-              <div class="testi-name">Emeka Okafor</div>
-              <div class="testi-role">Former Student, Class of 2022</div>
-            </div>
-          </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" aria-expanded="false" aria-controls="faq2" id="faq2btn">Which operators and aircraft does it apply to?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="acc-panel" id="faq2" role="region" aria-labelledby="faq2btn"><div><p>The levy applies to civilian helicopter movements covered by the applicable regulations. If you are unsure whether your operation is covered, our team will confirm it for you.</p></div></div>
         </div>
-        <div class="testi-card reveal">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">As a Cambridge IGCSE examiner, I am consistently impressed by the standard of Jephthah candidates. The school's commitment to rigour is evident in every script.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">JA</div>
-            <div>
-              <div class="testi-name">Dr. James Adeyemi</div>
-              <div class="testi-role">Cambridge IGCSE Examiner</div>
-            </div>
-          </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" aria-expanded="false" aria-controls="faq3" id="faq3btn">How can I pay?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="acc-panel" id="faq3" role="region" aria-labelledby="faq3btn"><div><p>Use the Make Payment option on this site, or contact either of our offices for the accepted payment channels and account details.</p></div></div>
         </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" aria-expanded="false" aria-controls="faq4" id="faq4btn">How long does clearance take?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+          <div class="acc-panel" id="faq4" role="region" aria-labelledby="faq4btn"><div><p>Clearance is issued once payment is confirmed. Our team will tell you the expected turnaround when you make your payment.</p></div></div>
+        </div>
+        <a class="acc-exit" href="#contact">
+          <span>Still need help? <strong>Talk to our team</strong></span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <div class="cta-banner">
-    <div class="container">
-      <div class="cta-banner-inner">
-        <div class="cta-banner-left">
-          <div class="cta-star-icon">⭐</div>
-          <div>
-            <h3>Join the 2025 Enrollment</h3>
-            <p>Limited spaces available for all classes. Applications are now open.</p>
-          </div>
+  <!-- ═══════════════ NEWSLETTER (Brief 10) ═══════════════ -->
+  <section class="newsletter" aria-labelledby="nlTitle">
+    <div class="container nl-inner">
+      <p class="nl-pitch" id="nlTitle">Get levy updates and regulatory notices in your inbox.</p>
+      <form class="nl-form" id="nlForm" novalidate>
+        <div class="field field--dark">
+          <input type="email" id="nlEmail" name="email" placeholder=" " autocomplete="email" required aria-describedby="nlNote nlError" />
+          <label for="nlEmail">Email address</label>
         </div>
-        <button class="btn btn-gold" onclick="openModal()">Secure a Spot →</button>
-      </div>
-    </div>
-  </div>
-
-</div><!-- end #home -->
-
-
-<!-- ═══════════════ ABOUT PAGE ═══════════════ -->
-<div id="about" class="page-section">
-  <div class="container">
-    <p class="section-label">Est. 1995</p>
-    <h2 class="section-title">About Jephthah</h2>
-    <p class="section-sub">Excellence, Discipline, Christian Values — nearly three decades of shaping futures in Port Harcourt.</p>
-
-    <div class="about-grid">
-      <img class="about-img"
-        src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg"
-        alt="Jephthah School">
-      <div class="about-text">
-        <p>Jephthah Comprehensive Secondary School was established on <strong>October 6, 1995</strong> with a vision to provide world-class education rooted in Christian values. The name <em>"Jephthah"</em> means <strong>"God Opens"</strong> — reflecting our belief that education opens every door.</p>
-        <p>Over nearly three decades, we have grown from a small initiative to one of the leading institutions in Port Harcourt, known for academic excellence, discipline, and character development. We serve over 1,200 students across Nursery, Primary, and Secondary levels in both boarding and day programmes.</p>
-        <p><strong>Vision:</strong> "Train up a child in the way he should go…" — Proverbs 22:6</p>
-        <p><strong>Mission:</strong> To provide comprehensive Christian education that promotes excellence, self-discipline, and motivation — producing disciples of Christ who advance the global community.</p>
-        <button class="btn btn-navy" onclick="navigate('admissions')">Start Your Application →</button>
-      </div>
-    </div>
-
-    <div class="staff-section">
-      <p class="section-label">Our Campus</p>
-      <h3 class="section-title" style="font-size:1.8rem;">Life at Jephthah</h3>
-      <div class="staff-grid">
-        <div class="staff-card reveal">
-          <img src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Academic Excellence">
-          <div class="staff-card-body">
-            <h4>Academic Excellence</h4>
-            <span>Cambridge · WAEC · NECO</span>
-          </div>
-        </div>
-        <div class="staff-card reveal">
-          <img src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="School Campus">
-          <div class="staff-card-body">
-            <h4>Modern Campus</h4>
-            <span>Port Harcourt · Rivers State</span>
-          </div>
-        </div>
-        <div class="staff-card reveal">
-          <img src="https://static.wixstatic.com/media/0a6e15_c6499263ecd94c209eaafe90229bce66~mv2.jpg/v1/fill/w_396,h_558,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20260204-WA0012.jpg" alt="Student Life">
-          <div class="staff-card-body">
-            <h4>Student Life</h4>
-            <span>Boarding &amp; Day Programmes</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:4rem;">
-      <p class="section-label">What We Stand On</p>
-      <h3 class="section-title" style="font-size:1.8rem;">Our Four Pillars</h3>
-      <div class="pillars-page">
-        <div class="pillar-page-card reveal"><h3>📚 Pillar 1: Wisdom</h3><p>Academic thinking and intellectual excellence through rigorous curriculum and critical thinking development.</p></div>
-        <div class="pillar-page-card reveal"><h3>⛪ Pillar 2: Spiritual Formation</h3><p>In favour with God — Christian values, character development, and spiritual growth through faith-based education.</p></div>
-        <div class="pillar-page-card reveal"><h3>💪 Pillar 3: Stature</h3><p>Physical &amp; skill development through sports, arts, and practical training for holistic student growth.</p></div>
-        <div class="pillar-page-card reveal"><h3>🤝 Pillar 4: Social-Emotional</h3><p>In favour with men — leadership, empathy, communication, and community engagement skills.</p></div>
-      </div>
-    </div>
-
-    <div style="margin-top:4rem;">
-      <p class="section-label">Our Environment</p>
-      <h3 class="section-title" style="font-size:1.8rem;">A Home Away from Home</h3>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;">
-        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
-          src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Students Learning">
-        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
-          src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg" alt="School Activities">
-        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
-          src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="Campus">
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════ ACADEMICS PAGE ═══════════════ -->
-<div id="academics" class="page-section">
-  <div class="container">
-    <p class="section-label">World-Class Curriculum</p>
-    <h2 class="section-title">Our Academics</h2>
-    <p class="section-sub">Multiple curricula, international standards, proven excellence — all under one roof in Port Harcourt.</p>
-
-    <div class="acad-grid">
-      <div class="acad-card reveal"><h3>🇳🇬 Nigerian Curriculum</h3><p>WASSCE, NECO, JAMB, Rivers State JSCE — preparing students for Nigerian universities and institutions.</p></div>
-      <div class="acad-card reveal"><h3>🌍 Cambridge IGCSE</h3><p>Global recognition and access to international universities through Cambridge Assessment International Education.</p></div>
-      <div class="acad-card reveal"><h3>📝 SAT / ACT / IELTS</h3><p>Dedicated preparation programmes for international university admissions in the US, UK, and Canada.</p></div>
-      <div class="acad-card reveal"><h3>👶 Montessori &amp; Primary</h3><p>Foundational learning through a play-based, child-centred approach for ages 3–12.</p></div>
-      <div class="acad-card reveal"><h3>🏠 Boarding Programme</h3><p>Comprehensive pastoral care for JSS and SSS boarders — a safe, structured home away from home.</p></div>
-      <div class="acad-card reveal"><h3>🎓 Day Programme</h3><p>Flexible day schooling across all levels with the same academic rigour as the boarding track.</p></div>
-    </div>
-
-    <div style="margin-top:4rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-      <img style="width:100%;height:260px;object-fit:cover;border-radius:16px;box-shadow:var(--shadow);"
-        src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Classroom at Jephthah">
-      <img style="width:100%;height:260px;object-fit:cover;border-radius:16px;box-shadow:var(--shadow);"
-        src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="Campus Life">
-    </div>
-
-    <div style="margin-top:3.5rem;">
-      <p class="section-label">Track Record</p>
-      <h3 class="section-title" style="font-size:1.8rem;">Key Achievements</h3>
-      <div class="achieve-list">
-        <div class="achieve-item"><span class="achieve-check">✓</span><p>15× National Winners of the Cowbell Mathematics Competition</p></div>
-        <div class="achieve-item"><span class="achieve-check">✓</span><p>Yearly outstanding results in Cambridge IGCSE — including Top in Nigeria and Top in the World awards</p></div>
-        <div class="achieve-item"><span class="achieve-check">✓</span><p>95%+ University Placement Rate — students admitted globally</p></div>
-        <div class="achieve-item"><span class="achieve-check">✓</span><p>International scholarships to universities in the UK, USA, and Canada</p></div>
-        <div class="achieve-item"><span class="achieve-check">✓</span><p>ACSI-Accredited Institution (Association of Christian Schools International)</p></div>
-        <div class="achieve-item"><span class="achieve-check">✓</span><p>Consistent zonal and national competition winners across STEM, arts, and sports</p></div>
-      </div>
-    </div>
-
-    <div style="margin-top:3rem;">
-      <button class="btn btn-navy" onclick="openModal()">Apply for Admission →</button>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════ ADMISSIONS PAGE ═══════════════ -->
-<div id="admissions" class="page-section">
-  <div class="container">
-    <p class="section-label">Enrollment 2025</p>
-    <h2 class="section-title">Admissions</h2>
-    <p class="section-sub">Applications are now open for all levels. Begin your Jephthah journey today.</p>
-
-    <div class="admission-layout">
-      <img class="admission-poster"
-        src="https://static.wixstatic.com/media/0a6e15_c6499263ecd94c209eaafe90229bce66~mv2.jpg/v1/fill/w_396,h_558,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20260204-WA0012.jpg"
-        alt="Admissions Poster 2025">
-      <div>
-        <p class="section-label" style="margin-bottom:.75rem;">How to Apply</p>
-        <div class="steps">
-          <div class="step"><div class="step-num">1</div><div><h4>Inquiry</h4><p>Contact us or download the prospectus to learn more about our programmes and fees.</p></div></div>
-          <div class="step"><div class="step-num">2</div><div><h4>Application</h4><p>Submit the online form with required documents — transcripts, passport photo, and medical form.</p></div></div>
-          <div class="step"><div class="step-num">3</div><div><h4>Entrance Assessment</h4><p>Students sit an entrance examination to assess academic level and appropriate class placement.</p></div></div>
-          <div class="step"><div class="step-num">4</div><div><h4>Parent Interview</h4><p>A short interview with parents and student to discuss expectations and confirm suitability.</p></div></div>
-          <div class="step"><div class="step-num">5</div><div><h4>Admission Letter</h4><p>Receive your acceptance letter and pay the registration deposit to secure your child's place.</p></div></div>
-        </div>
-        <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
-          <button class="btn btn-navy" onclick="openModal()">Apply Online Now →</button>
-          <button class="btn btn-outline" onclick="navigate('contact')">Contact Admissions</button>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:4rem;">
-      <p class="section-label">Our Environment</p>
-      <h3 class="section-title" style="font-size:1.8rem;">A Home Away from Home</h3>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;">
-        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
-          src="https://static.wixstatic.com/media/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg/v1/fill/w_980,h_733,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_108b9a3e39fa49ddae8adbf39f9c71d6~mv2.jpg" alt="Students Learning">
-        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
-          src="https://static.wixstatic.com/media/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_2aa3f00fb5924e82a40ed48f5770bbf6~mv2.jpg" alt="School Activities">
-        <img style="width:100%;height:200px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);"
-          src="https://static.wixstatic.com/media/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg/v1/fill/w_980,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_b16c83111539477f90abbfc733dcc9bf~mv2.jpg" alt="Campus">
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════ CONTACT PAGE ═══════════════ -->
-<div id="contact" class="page-section">
-  <div class="container">
-    <p class="section-label">Get In Touch</p>
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-sub">We'd love to hear from you. Reach out and a member of our team will respond within 24 hours.</p>
-
-    <div class="contact-grid">
-      <div class="contact-card reveal">
-        <div class="contact-icon">📍</div>
-        <h3>Main Office</h3>
-        <p>Km4, East-West Road, Rumuome-Ozuoba,<br>Port Harcourt, Rivers State<br><br>
-          <strong>+234-803-734-6444</strong><br>Mon–Fri: 8:00 AM – 5:00 PM</p>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-icon">📧</div>
-        <h3>Admissions</h3>
-        <p>admissions@jephthah.net<br>
-          <strong>+234-806-536-0147</strong><br><br>Mon–Sat: 8:00 AM – 4:00 PM</p>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-icon">💬</div>
-        <h3>General Enquiries</h3>
-        <p>info@jephthah.net<br>
-          <strong>+234-806-261-5330</strong><br><br>Response within 24 hours</p>
-      </div>
-    </div>
-
-    <div class="contact-form reveal">
-      <h3>Send Us a Message</h3>
-      <form onsubmit="handleContact(event)">
-        <div class="form-row">
-          <div class="form-group"><label>Full Name</label><input type="text" placeholder="e.g. Adaeze Nwosu" required></div>
-          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com" required></div>
-        </div>
-        <div class="form-group"><label>Subject</label><input type="text" placeholder="How can we help?"></div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Write your message here…" required></textarea></div>
-        <button type="submit" class="btn btn-navy">Send Message</button>
+        <button type="submit" class="btn btn--primary">Subscribe</button>
+        <p class="nl-note" id="nlNote">We don't share your information with anyone.</p>
+        <p class="nl-error" id="nlError" role="alert" hidden>Please enter a valid email address.</p>
       </form>
     </div>
-  </div>
-</div>
+  </section>
 
+</main>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer>
+<!-- ═══════════════ FOOTER (Brief 11) ═══════════════ -->
+<footer class="site-footer" id="contact">
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="https://static.wixstatic.com/media/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg/v1/fill/w_64,h_65,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0a6e15_f09aac29d3aa4e368f854b801e34c5ca~mv2.jpg" alt="Jephthah Logo">
-          <span class="footer-brand-name">Jephthah<br>Academy</span>
-        </div>
-        <p class="footer-about">Excellence, Discipline, Christian Values. Preparing global citizens since 1995, Port Harcourt, Rivers State, Nigeria.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/jephthahschools" target="_blank" aria-label="Facebook">f</a>
-          <a href="#" target="_blank" aria-label="Instagram">ig</a>
-          <a href="#" target="_blank" aria-label="Twitter">tw</a>
-          <a href="#" target="_blank" aria-label="YouTube">yt</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#" onclick="navigate('about');return false;">About Us</a></li>
-          <li><a href="#" onclick="navigate('academics');return false;">Academics</a></li>
-          <li><a href="#" onclick="navigate('admissions');return false;">Admissions</a></li>
-          <li><a href="#" onclick="navigate('contact');return false;">Contact</a></li>
-          <li><a href="https://www.jephthah.net" target="_blank">Current Website</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Location</h4>
-        <p>Km4, East-West Road,<br>Rumuome-Ozuoba,<br>Port Harcourt,<br>Rivers State, Nigeria.<br><br>
-          <strong style="color:var(--white);">+234-803-734-6444</strong><br>
-          info@jephthah.net
-        </p>
-      </div>
+    <div class="footer-top">
+      <span class="logo-plate logo-plate--footer">
+        <img class="logo logo--footer" src="assets/naebi-logo.png" alt="Naebi Dynamic Concepts Ltd" width="280" height="296" />
+      </span>
+      <p class="footer-tag">Efficient levy collection for civilian helicopter movement.</p>
     </div>
 
-    <div class="footer-bottom">
-      <span>&copy; 2025 Jephthah Comprehensive Secondary School. All rights reserved.</span>
-      <span>
-        <a href="#">Privacy Policy</a>
-        &nbsp;·&nbsp;
-        <a href="#">Terms</a>
-      </span>
+    <div class="footer-grid">
+      <details class="footer-col" open>
+        <summary>Company</summary>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#operations">Operations</a></li>
+          <li><a href="#contact">Make Payment</a></li>
+        </ul>
+      </details>
+      <details class="footer-col" open>
+        <summary>Contact</summary>
+        <!-- Replace with Naebi's real phone number and email address. -->
+        <ul>
+          <li><a href="tel:+2340000000000">+234 000 000 0000</a></li>
+          <li><a href="mailto:info@example.com">info@example.com</a></li>
+          <li>Mon&ndash;Fri, 8:00&ndash;17:00 WAT</li>
+        </ul>
+      </details>
+      <details class="footer-col footer-col--offices" open>
+        <summary>Offices</summary>
+        <div class="office">
+          <strong>Port Harcourt <span class="office-tag">HQ</span></strong>
+          <span class="coords">4.8156&deg; N, 7.0498&deg; E</span>
+          <span class="local-time" data-tz="Africa/Lagos">&nbsp;</span>
+        </div>
+        <div class="office">
+          <strong>Lagos</strong>
+          <span class="coords">6.5244&deg; N, 3.3792&deg; E</span>
+          <span class="local-time" data-tz="Africa/Lagos">&nbsp;</span>
+        </div>
+      </details>
+      <details class="footer-col" open>
+        <summary>Social</summary>
+        <ul>
+          <li><a href="#" aria-disabled="true">LinkedIn</a></li>
+          <li><a href="#" aria-disabled="true">X (Twitter)</a></li>
+          <li><a href="#" aria-disabled="true">Facebook</a></li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="footer-legal">
+      <p>&copy; <span id="year">2026</span> Naebi Dynamic Concepts Ltd. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Refund Policy</a></li>
+      </ul>
     </div>
   </div>
 </footer>
-
-
-<!-- ═══════════════ APPLICATION MODAL ═══════════════ -->
-<div class="modal-overlay" id="applyModal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <h2>Apply to Jephthah</h2>
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
-    </div>
-    <form onsubmit="handleApply(event)" class="modal-form">
-      <div class="form-group">
-        <label>Student's Full Name</label>
-        <input type="text" placeholder="e.g. Emeka Obi" required>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Parent's Email</label>
-          <input type="email" placeholder="parent@example.com" required>
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="+234 800 000 0000" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Class / Level</label>
-          <select required>
-            <option value="">Select level</option>
-            <option>Nursery</option>
-            <option>Primary (Basic 1–6)</option>
-            <option>JSS – Day</option>
-            <option>JSS – Boarding</option>
-            <option>SSS – Day</option>
-            <option>SSS – Boarding</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Curriculum</label>
-          <select required>
-            <option value="">Select curriculum</option>
-            <option>Nigerian Curriculum</option>
-            <option>International (Cambridge)</option>
-            <option>Both</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Additional Notes</label>
-        <textarea placeholder="Any special requirements or questions…" style="min-height:80px;"></textarea>
-      </div>
-      <button type="submit" class="btn btn-navy" style="width:100%;justify-content:center;">Submit Application</button>
-    </form>
-  </div>
-</div>
 
 <script src="main.js"></script>
 </body>

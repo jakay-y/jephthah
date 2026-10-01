@@ -294,6 +294,8 @@ body{ background:var(--paper); color:var(--ink); font:400 var(--fs-body)/1.6 var
 ---
 
 ## 10. Notes for this repository
-- At the moment, `index.html`, `style.css` and `main.js` in this repo contain the **Jephthah Comprehensive Secondary School** site. This document describes the **Naebi Dynamic Concepts** design. Applying it means replacing the school content and its existing palette and fonts (Cormorant Garamond and Outfit) with the tokens above.
-- Fonts: load Inter from Google Fonts and General Sans from `api.fontshare.com`, using `font-display: swap`.
-- Still needed from the client: the logo as **SVG or a high-resolution PNG**, a square favicon, and the final stat figures.
+- `index.html`, `style.css` and `main.js` implement this document. The previous Jephthah school site was replaced; `hero-video.mp4` from that site is no longer used.
+- Photos: the slots listed in `assets/images/README.md` show a navy brand gradient until the real files are added.
+- Placeholders to replace before launch: stat figures (`data-target` in `index.html`), phone and email in the footer, social links, the Make Payment destination, the FAQ answers' specifics, and a mailing service for the newsletter form (validation only for now).
+- Fonts: Inter from Google Fonts and General Sans from `api.fontshare.com`, using `font-display: swap`.
+- Still needed from the client: the logo as **SVG or a high-resolution PNG**, and a square favicon.
